@@ -1,0 +1,103 @@
+[
+  {
+    "id": "start",
+    "speaker": "narrator",
+    "text": "Era una mañana tranquila en la academia Hope's Peak. El sol apenas comenzaba a iluminar los pasillos vacíos...",
+    "next": "intro_1"
+  },
+  {
+    "id": "intro_1",
+    "speaker": "left",
+    "name": "Aiko",
+    "text": "¿Hola? ¿Hay alguien aquí? No esperaba encontrar a nadie tan temprano.",
+    "sprite_left": "res://sprites/aiko_normal.png",
+    "next": "intro_2"
+  },
+  {
+    "id": "intro_2",
+    "speaker": "right",
+    "name": "Riku",
+    "text": "Ah, llegaste. Llevo esperándote desde hace media hora.",
+    "sprite_right": "res://sprites/riku_normal.png",
+    "next": "intro_3"
+  },
+  {
+    "id": "intro_3",
+    "speaker": "left",
+    "name": "Aiko",
+    "text": "¿Esperándome? Pero si ni siquiera nos conocemos...",
+    "next": "choice_1"
+  },
+  {
+    "id": "choice_1",
+    "type": "decision",
+    "options": [
+      {
+        "text": "¿Por qué me esperabas?",
+        "next": "path_why"
+      },
+      {
+        "text": "Me parece que te equivocas de persona.",
+        "next": "path_wrong"
+      },
+      {
+        "text": "Cuéntame más.",
+        "next": "path_curious"
+      }
+    ]
+  },
+  {
+    "id": "path_why",
+    "speaker": "right",
+    "name": "Riku",
+    "text": "Porque tengo algo importante que contarte sobre este lugar. Algo que nadie más sabe.",
+    "next": "converge_1"
+  },
+  {
+    "id": "path_wrong",
+    "speaker": "right",
+    "name": "Riku",
+    "text": "No me equivoco. Tu nombre es Aiko, ¿verdad? Sabía que vendrías aquí esta mañana.",
+    "next": "converge_1"
+  },
+  {
+    "id": "path_curious",
+    "speaker": "right",
+    "name": "Riku",
+    "text": "Hay secretos en esta academia que cambiarán todo lo que crees saber.",
+    "next": "converge_1"
+  },
+  {
+    "id": "converge_1",
+    "speaker": "left",
+    "name": "Aiko",
+    "text": "Esto... no me da buena espina. Pero algo me dice que debo escucharte.",
+    "next": "choice_2"
+  },
+  {
+    "id": "choice_2",
+    "type": "decision",
+    "options": [
+      {
+        "text": "Acepto escucharte.",
+        "next": "ending_good"
+      },
+      {
+        "text": "Prefiero no saber.",
+        "next": "ending_neutral"
+      }
+    ]
+  },
+  {
+    "id": "ending_good",
+    "speaker": "narrator",
+    "text": "Y así, con esa decisión, comenzó una historia que ninguno de los dos olvidaría jamás.",
+    "next": ""
+  },
+  {
+    "id": "ending_neutral",
+    "speaker": "narrator",
+    "text": "Aiko se alejó. Pero la curiosidad, como siempre, terminaría ganando la batalla.",
+    "next": ""
+  }
+]

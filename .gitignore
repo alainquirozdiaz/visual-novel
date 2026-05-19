@@ -1,0 +1,30 @@
+# Godot 4 — archivos generados automáticamente por el editor
+.godot/
+
+# Claude Code
+.claude/
+
+# Traducciones compiladas
+*.translation
+
+# Configuración de exportación (contiene rutas locales)
+export_presets.cfg
+
+# Mono / C# (si se usa)
+.mono/
+data_*/
+mono_crash.*.json
+
+# Binarios de exportación
+*.exe
+*.apk
+*.aab
+*.ipa
+*.dmg
+*.zip
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
