@@ -46,4 +46,12 @@ offset_bottom = 524.0
 theme_override_font_sizes/font_size = 16
 text = "Volver al Menú"
 
+; FadeRect — se anima en lugar de modulate (CanvasLayer no tiene modulate).
+; Debe ser el ÚLTIMO hijo para dibujarse encima de todo.
+[node name="FadeRect" type="ColorRect" parent="."]
+offset_right  = 1280.0
+offset_bottom = 720.0
+color         = Color(0, 0, 0, 1)
+mouse_filter  = 2
+
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
