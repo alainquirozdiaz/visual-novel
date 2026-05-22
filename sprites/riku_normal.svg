@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600">
+  <defs>
+    <radialGradient id="iris_riku" cx="38%" cy="30%" r="70%">
+      <stop offset="0%"   stop-color="#A8E8C0"/>
+      <stop offset="50%"  stop-color="#2A8A50"/>
+      <stop offset="100%" stop-color="#0A5030"/>
+    </radialGradient>
+    <linearGradient id="hair_riku" x1="0.5" y1="0" x2="0.6" y2="1">
+      <stop offset="0%"   stop-color="#0A0A14"/>
+      <stop offset="100%" stop-color="#1E1E30"/>
+    </linearGradient>
+    <linearGradient id="blazer_r" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%"   stop-color="#1E2888"/>
+      <stop offset="100%" stop-color="#0A1050"/>
+    </linearGradient>
+    <linearGradient id="skin_r" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%"   stop-color="#FFE0C0"/>
+      <stop offset="100%" stop-color="#EEC090"/>
+    </linearGradient>
+    <linearGradient id="pants_r" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%"   stop-color="#1A1A30"/>
+      <stop offset="100%" stop-color="#0A0A1E"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ── BACK HAIR (short, covers top of head) ── -->
+  <ellipse cx="200" cy="78" rx="84" ry="70" fill="url(#hair_riku)"/>
+
+  <!-- ── PANTS ── -->
+  <path d="M148,370 L140,610 L196,610 L200,500 L204,610 L260,610 L252,370Z"
+        fill="url(#pants_r)"/>
+  <line x1="170" y1="372" x2="162" y2="610" stroke="#08081A" stroke-width="1.5" opacity="0.4"/>
+  <line x1="230" y1="372" x2="238" y2="610" stroke="#08081A" stroke-width="1.5" opacity="0.4"/>
+  <line x1="200" y1="415" x2="196" y2="610" stroke="#08081A" stroke-width="1.2" opacity="0.35"/>
+  <line x1="200" y1="415" x2="204" y2="610" stroke="#08081A" stroke-width="1.2" opacity="0.35"/>
+
+  <!-- ── BLAZER ── -->
+  <path d="M122,215 C104,222 88,240 82,265 C77,288 78,328 80,370
+           L148,370 L148,265 C168,257 182,253 200,253
+           C218,253 232,257 252,265 L252,370 L320,370
+           C322,328 323,288 318,265 C312,240 296,222 278,215
+           C258,207 232,202 200,202 C168,202 142,207 122,215Z"
+        fill="url(#blazer_r)" stroke="#08104A" stroke-width="1.5"/>
+
+  <!-- Shirt collar -->
+  <path d="M190,200 L196,213 L200,217 L204,213 L210,200"
+        fill="none" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- Lapels -->
+  <path d="M200,217 L183,228 L180,255 L200,253" fill="#E8EAFF" stroke="#08104A" stroke-width="1"/>
+  <path d="M200,217 L217,228 L220,255 L200,253" fill="#E8EAFF" stroke="#08104A" stroke-width="1"/>
+  <!-- Tie -->
+  <path d="M197,222 L195,258 L200,266 L205,258 L203,222Z"
+        fill="#1A237E" stroke="#0D1040" stroke-width="1"/>
+  <path d="M196,222 L200,228 L204,222 L200,218Z" fill="#1A237E" stroke="#0D1040" stroke-width="1"/>
+
+  <!-- ── LEFT ARM ── -->
+  <path d="M122,218 C106,226 92,245 87,268 C82,290 82,320 87,344
+           C91,360 98,372 106,372 L122,356
+           C118,335 117,308 120,278 L122,218Z"
+        fill="url(#blazer_r)" stroke="#08104A" stroke-width="1.5"/>
+  <ellipse cx="100" cy="378" rx="15" ry="18" fill="#FFD4A4" stroke="#DAAA78" stroke-width="1"/>
+
+  <!-- ── RIGHT ARM ── -->
+  <path d="M278,218 C294,226 308,245 313,268 C318,290 318,320 313,344
+           C309,360 302,372 294,372 L278,356
+           C282,335 283,308 280,278 L278,218Z"
+        fill="url(#blazer_r)" stroke="#08104A" stroke-width="1.5"/>
+  <ellipse cx="300" cy="378" rx="15" ry="18" fill="#FFD4A4" stroke="#DAAA78" stroke-width="1"/>
+
+  <!-- ── NECK ── -->
+  <rect x="186" y="194" width="28" height="16" rx="5" fill="#FFD4A4" stroke="#DAAA78" stroke-width="1"/>
+
+  <!-- ── HEAD ── -->
+  <ellipse cx="200" cy="108" rx="78" ry="86" fill="url(#skin_r)" stroke="#DAAA78" stroke-width="1.5"/>
+  <ellipse cx="124" cy="115" rx="12" ry="15" fill="#FFD4A4" stroke="#DAAA78" stroke-width="1"/>
+  <ellipse cx="276" cy="115" rx="12" ry="15" fill="#FFD4A4" stroke="#DAAA78" stroke-width="1"/>
+
+  <!-- ── FACE ── -->
+  <!-- Eyebrows — straight, sharp -->
+  <path d="M140,86 L180,88" stroke="#0E0A18" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M220,88 L260,86" stroke="#0E0A18" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Eye whites — narrower/almond shape -->
+  <ellipse cx="162" cy="112" rx="24" ry="17" fill="#FCFCFF" stroke="#181828" stroke-width="1.5"/>
+  <ellipse cx="238" cy="112" rx="24" ry="17" fill="#FCFCFF" stroke="#181828" stroke-width="1.5"/>
+  <!-- Iris -->
+  <ellipse cx="162" cy="113" rx="15" ry="14" fill="url(#iris_riku)"/>
+  <ellipse cx="238" cy="113" rx="15" ry="14" fill="url(#iris_riku)"/>
+  <!-- Pupil -->
+  <ellipse cx="163" cy="114" rx="7" ry="7" fill="#040814"/>
+  <ellipse cx="239" cy="114" rx="7" ry="7" fill="#040814"/>
+  <!-- Highlights (smaller, cooler feel) -->
+  <ellipse cx="157" cy="108" rx="5"   ry="4"   fill="white" opacity="0.88"/>
+  <ellipse cx="167" cy="119" rx="2.5" ry="2"   fill="white" opacity="0.60"/>
+  <ellipse cx="233" cy="108" rx="5"   ry="4"   fill="white" opacity="0.88"/>
+  <ellipse cx="243" cy="119" rx="2.5" ry="2"   fill="white" opacity="0.60"/>
+  <!-- Upper eyelashes -->
+  <path d="M138,100 C148,94 158,93 162,94 C166,93 176,94 186,100"
+        stroke="#181828" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+  <path d="M214,100 C224,94 234,93 238,94 C242,93 252,94 262,100"
+        stroke="#181828" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+  <!-- Inner corner sharpness -->
+  <path d="M138,100 L145,112" stroke="#181828" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M262,100 L255,112" stroke="#181828" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Nose -->
+  <path d="M195,140 C197,144 203,144 205,140" stroke="#C09070" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <!-- Slight smirk (left side higher) -->
+  <path d="M186,158 Q196,162 208,157" stroke="#A05858" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+
+  <!-- ── FRONT HAIR — spiky short style ── -->
+  <path d="M125,62 C135,38 162,20 200,20 C238,20 265,38 275,62"
+        fill="url(#hair_riku)" stroke="none"/>
+  <!-- Center spike -->
+  <path d="M200,20 C196,35 193,55 196,72 C198,80 200,85 200,85
+           C200,85 202,80 204,72 C207,55 204,35 200,20Z" fill="url(#hair_riku)"/>
+  <!-- Left spikes -->
+  <path d="M175,23 C165,38 158,58 162,80 C163,86 165,90 165,90
+           C163,83 159,68 162,52 C165,36 172,26 175,23Z" fill="url(#hair_riku)"/>
+  <path d="M150,34 C138,50 133,72 137,95 C138,101 140,105 140,105
+           C138,97 135,80 138,62 C141,44 147,38 150,34Z" fill="url(#hair_riku)"/>
+  <path d="M128,58 C120,76 118,100 122,120 C123,126 124,130 124,130
+           C122,120 120,104 122,84 C124,66 127,62 128,58Z" fill="url(#hair_riku)"/>
+  <!-- Right spikes -->
+  <path d="M225,23 C235,38 242,58 238,80 C237,86 235,90 235,90
+           C237,83 241,68 238,52 C235,36 228,26 225,23Z" fill="url(#hair_riku)"/>
+  <path d="M250,34 C262,50 267,72 263,95 C262,101 260,105 260,105
+           C262,97 265,80 262,62 C259,44 253,38 250,34Z" fill="url(#hair_riku)"/>
+  <path d="M272,58 C280,76 282,100 278,120 C277,126 276,130 276,130
+           C278,120 280,104 278,84 C276,66 273,62 272,58Z" fill="url(#hair_riku)"/>
+
+  <!-- Hair shine -->
+  <path d="M163,28 C176,22 196,20 216,24" stroke="#3E3E58" stroke-width="4" fill="none" opacity="0.3" stroke-linecap="round"/>
+</svg>

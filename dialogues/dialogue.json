@@ -3,6 +3,7 @@
     "id": "start",
     "speaker": "narrator",
     "text": "Era una mañana tranquila en la academia Hope's Peak. El sol apenas comenzaba a iluminar los pasillos vacíos...",
+    "background": "res://backgrounds/classroom.svg",
     "next": "intro_1"
   },
   {
@@ -10,7 +11,7 @@
     "speaker": "left",
     "name": "Aiko",
     "text": "¿Hola? ¿Hay alguien aquí? No esperaba encontrar a nadie tan temprano.",
-    "sprite_left": "res://sprites/aiko_normal.png",
+    "sprite_left": "res://sprites/aiko_normal.svg",
     "next": "intro_2"
   },
   {
@@ -18,7 +19,7 @@
     "speaker": "right",
     "name": "Riku",
     "text": "Ah, llegaste. Llevo esperándote desde hace media hora.",
-    "sprite_right": "res://sprites/riku_normal.png",
+    "sprite_right": "res://sprites/riku_normal.svg",
     "next": "intro_3"
   },
   {
@@ -32,18 +33,9 @@
     "id": "choice_1",
     "type": "decision",
     "options": [
-      {
-        "text": "¿Por qué me esperabas?",
-        "next": "path_why"
-      },
-      {
-        "text": "Me parece que te equivocas de persona.",
-        "next": "path_wrong"
-      },
-      {
-        "text": "Cuéntame más.",
-        "next": "path_curious"
-      }
+      { "text": "¿Por qué me esperabas?",          "next": "path_why"     },
+      { "text": "Me parece que te equivocas.",      "next": "path_wrong"   },
+      { "text": "Cuéntame más.",                    "next": "path_curious" }
     ]
   },
   {
@@ -78,14 +70,8 @@
     "id": "choice_2",
     "type": "decision",
     "options": [
-      {
-        "text": "Acepto escucharte.",
-        "next": "ending_good"
-      },
-      {
-        "text": "Prefiero no saber.",
-        "next": "ending_neutral"
-      }
+      { "text": "Acepto escucharte.",  "next": "ending_good"    },
+      { "text": "Prefiero no saber.",  "next": "ending_neutral" }
     ]
   },
   {
