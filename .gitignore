@@ -23,6 +23,10 @@ mono_crash.*.json
 *.dmg
 *.zip
 
+# Godot — archivos de importación y UIDs generados por el editor
+*.import
+*.uid
+
 # macOS
 .DS_Store
 

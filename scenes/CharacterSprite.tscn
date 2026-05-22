@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+; Sprite reutilizable para personajes.
+; Se instancia dos veces en Main.tscn (SpriteLeft / SpriteRight).
+; La posición y tamaño se sobreescriben en la escena padre.
+
+[node name="CharacterSprite" type="TextureRect"]
+expand_mode = 1
+stretch_mode = 5

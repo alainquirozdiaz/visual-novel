@@ -1,0 +1,25 @@
+[gd_scene format=3]
+
+; Caja de diálogo reutilizable para personaje izquierdo y derecho.
+; Tamaño base: 602×182 px — posición se sobreescribe en UILayer.tscn.
+
+[node name="DialogueBox" type="Panel"]
+offset_right = 602.0
+offset_bottom = 182.0
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 592.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 17
+text = "Name"
+
+[node name="DialogueLabel" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 42.0
+offset_right = 592.0
+offset_bottom = 172.0
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 14
+text = ""

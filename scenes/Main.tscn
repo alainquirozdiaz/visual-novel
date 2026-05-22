@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3]
 
-[ext_resource type="Script" path="res://scripts/Main.gd" id="1"]
-[ext_resource type="Script" path="res://scripts/CharacterAnimator.gd" id="2"]
-[ext_resource type="Script" path="res://scripts/DialogueManager.gd" id="3"]
-[ext_resource type="Script" path="res://scripts/TypewriterManager.gd" id="4"]
-[ext_resource type="Script" path="res://scripts/UIManager.gd" id="5"]
-[ext_resource type="Script" path="res://scripts/DecisionManager.gd" id="6"]
+[ext_resource type="Script"      path="res://scripts/Main.gd"              id="1"]
+[ext_resource type="Script"      path="res://scripts/CharacterAnimator.gd" id="2"]
+[ext_resource type="Script"      path="res://scripts/DialogueManager.gd"   id="3"]
+[ext_resource type="Script"      path="res://scripts/TypewriterManager.gd" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/CharacterSprite.tscn"  id="5"]
+[ext_resource type="PackedScene" path="res://scenes/UILayer.tscn"          id="6"]
 
 ; ── Raíz ──────────────────────────────────────────────────────────────────────
 [node name="Main" type="Node2D"]
@@ -13,30 +13,25 @@ script = ExtResource("1")
 
 ; ── Fondo full-screen ──────────────────────────────────────────────────────────
 [node name="Background" type="TextureRect" parent="."]
-offset_right = 1280.0
+offset_right  = 1280.0
 offset_bottom = 720.0
-expand_mode = 1
-stretch_mode = 6
+expand_mode   = 1
+stretch_mode  = 6
 
-; ── Sprite personaje izquierdo ─────────────────────────────────────────────────
-[node name="SpriteLeft" type="TextureRect" parent="."]
-offset_left = 0.0
-offset_top = 50.0
-offset_right = 400.0
+; ── Sprites de personajes (instancias de CharacterSprite.tscn) ────────────────
+[node name="SpriteLeft" parent="." instance=ExtResource("5")]
+offset_left   = 0.0
+offset_top    = 50.0
+offset_right  = 400.0
 offset_bottom = 650.0
-expand_mode = 1
-stretch_mode = 5
 
-; ── Sprite personaje derecho ───────────────────────────────────────────────────
-[node name="SpriteRight" type="TextureRect" parent="."]
-offset_left = 880.0
-offset_top = 50.0
-offset_right = 1280.0
+[node name="SpriteRight" parent="." instance=ExtResource("5")]
+offset_left   = 880.0
+offset_top    = 50.0
+offset_right  = 1280.0
 offset_bottom = 650.0
-expand_mode = 1
-stretch_mode = 5
 
-; ── Managers ──────────────────────────────────────────────────────────────────
+; ── Managers lógicos ──────────────────────────────────────────────────────────
 [node name="CharacterAnimator" type="Node" parent="."]
 script = ExtResource("2")
 
@@ -49,94 +44,6 @@ script = ExtResource("4")
 [node name="TypewriterTimer" type="Timer" parent="."]
 wait_time = 0.03
 
-; ── UI (CanvasLayer — siempre encima de sprites y fondo) ─────────────────────
-[node name="UIManager" type="CanvasLayer" parent="."]
-layer = 1
-script = ExtResource("5")
-
-; ── Botón Siguiente ────────────────────────────────────────────────────────────
-[node name="NextButton" type="Button" parent="UIManager"]
-offset_left = 1100.0
-offset_top = 680.0
-offset_right = 1270.0
-offset_bottom = 714.0
-text = "Next  ▶"
-
-; ── Caja de diálogo — izquierda ────────────────────────────────────────────────
-[node name="LeftDialogueBox" type="Panel" parent="UIManager"]
-visible = false
-offset_left = 20.0
-offset_top = 528.0
-offset_right = 622.0
-offset_bottom = 710.0
-
-[node name="NameLabel" type="Label" parent="UIManager/LeftDialogueBox"]
-offset_left = 10.0
-offset_top = 8.0
-offset_right = 592.0
-offset_bottom = 36.0
-theme_override_font_sizes/font_size = 17
-text = "Name"
-
-[node name="DialogueLabel" type="Label" parent="UIManager/LeftDialogueBox"]
-offset_left = 10.0
-offset_top = 42.0
-offset_right = 592.0
-offset_bottom = 172.0
-autowrap_mode = 3
-theme_override_font_sizes/font_size = 14
-text = ""
-
-; ── Caja de diálogo — derecha ──────────────────────────────────────────────────
-[node name="RightDialogueBox" type="Panel" parent="UIManager"]
-visible = false
-offset_left = 658.0
-offset_top = 528.0
-offset_right = 1260.0
-offset_bottom = 710.0
-
-[node name="NameLabel" type="Label" parent="UIManager/RightDialogueBox"]
-offset_left = 10.0
-offset_top = 8.0
-offset_right = 592.0
-offset_bottom = 36.0
-theme_override_font_sizes/font_size = 17
-text = "Name"
-
-[node name="DialogueLabel" type="Label" parent="UIManager/RightDialogueBox"]
-offset_left = 10.0
-offset_top = 42.0
-offset_right = 592.0
-offset_bottom = 172.0
-autowrap_mode = 3
-theme_override_font_sizes/font_size = 14
-text = ""
-
-; ── Caja narrativa (narrador sin sprite) ───────────────────────────────────────
-[node name="NarrativeDialogueBox" type="Panel" parent="UIManager"]
-visible = false
-offset_left = 160.0
-offset_top = 528.0
-offset_right = 1120.0
-offset_bottom = 710.0
-
-[node name="DialogueLabel" type="Label" parent="UIManager/NarrativeDialogueBox"]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 940.0
-offset_bottom = 162.0
-autowrap_mode = 3
-theme_override_font_sizes/font_size = 14
-text = ""
-
-; ── Sistema de decisiones ──────────────────────────────────────────────────────
-[node name="DecisionManager" type="Node" parent="UIManager"]
-script = ExtResource("6")
-
-[node name="DecisionBox" type="VBoxContainer" parent="UIManager/DecisionManager"]
-visible = false
-offset_left = 390.0
-offset_top = 200.0
-offset_right = 890.0
-offset_bottom = 520.0
-theme_override_constants/separation = 12
+; ── UI completa (instancia de UILayer.tscn) ───────────────────────────────────
+; El nombre "UIManager" es el que espera Main.gd en sus @onready vars.
+[node name="UIManager" parent="." instance=ExtResource("6")]
