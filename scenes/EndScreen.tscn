@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/EndScreen.gd" id="1"]
+
+; Pantalla de cierre que aparece al terminar todos los diálogos.
+; layer=5 → encima de la UI (layer=1) pero debajo de la transición (layer=10).
+
+[node name="EndScreen" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1")
+
+; Fondo oscuro semitransparente
+[node name="DarkOverlay" type="ColorRect" parent="."]
+offset_right  = 1280.0
+offset_bottom = 720.0
+color         = Color(0.04, 0.04, 0.08, 0.92)
+mouse_filter  = 2
+
+; Título principal — "FIN" (texto inyectado desde EndScreen.gd)
+[node name="EndTitle" type="Label" parent="."]
+offset_left   = 100.0
+offset_top    = 220.0
+offset_right  = 1180.0
+offset_bottom = 340.0
+horizontal_alignment = 1
+vertical_alignment   = 1
+theme_override_font_sizes/font_size = 72
+text = "FIN"
+
+; Subtítulo / mensaje final
+[node name="EndSubtitle" type="Label" parent="."]
+offset_left   = 100.0
+offset_top    = 350.0
+offset_right  = 1180.0
+offset_bottom = 400.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 20
+text = "Gracias por jugar"
+
+; Botón para volver al menú principal
+[node name="MenuButton" type="Button" parent="."]
+offset_left   = 490.0
+offset_top    = 470.0
+offset_right  = 790.0
+offset_bottom = 524.0
+theme_override_font_sizes/font_size = 16
+text = "Volver al Menú"
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

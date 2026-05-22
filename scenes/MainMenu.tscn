@@ -1,0 +1,115 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1"]
+
+; Menú principal — escena de inicio del juego.
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1")
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 1
+
+; ── Fondo ─────────────────────────────────────────────────────────────────────
+[node name="BackgroundColor" type="ColorRect" parent="UILayer"]
+offset_right  = 1280.0
+offset_bottom = 720.0
+color         = Color(0.06, 0.06, 0.12, 1.0)
+
+; ── Título del juego ───────────────────────────────────────────────────────────
+[node name="TitleLabel" type="Label" parent="UILayer"]
+offset_left   = 100.0
+offset_top    = 155.0
+offset_right  = 1180.0
+offset_bottom = 255.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 58
+text = "VISUAL NOVEL"
+
+[node name="SubtitleLabel" type="Label" parent="UILayer"]
+offset_left   = 100.0
+offset_top    = 262.0
+offset_right  = 1180.0
+offset_bottom = 300.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+text = "Una historia de decisiones"
+
+; ── Botones del menú ──────────────────────────────────────────────────────────
+[node name="ButtonContainer" type="VBoxContainer" parent="UILayer"]
+offset_left   = 490.0
+offset_top    = 350.0
+offset_right  = 790.0
+offset_bottom = 490.0
+theme_override_constants/separation = 14
+
+[node name="StartButton" type="Button" parent="UILayer/ButtonContainer"]
+custom_minimum_size = Vector2(0, 55)
+theme_override_font_sizes/font_size = 18
+text = "Inicio"
+
+[node name="CreditsButton" type="Button" parent="UILayer/ButtonContainer"]
+custom_minimum_size = Vector2(0, 55)
+theme_override_font_sizes/font_size = 18
+text = "Créditos"
+
+; ── Panel de créditos (oculto por defecto) ────────────────────────────────────
+[node name="CreditsPanel" type="Panel" parent="UILayer"]
+visible       = false
+offset_left   = 290.0
+offset_top    = 140.0
+offset_right  = 990.0
+offset_bottom = 575.0
+
+[node name="CreditsTitle" type="Label" parent="UILayer/CreditsPanel"]
+offset_left   = 20.0
+offset_top    = 16.0
+offset_right  = 680.0
+offset_bottom = 52.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 22
+text = "Créditos"
+
+[node name="CreditsText" type="Label" parent="UILayer/CreditsPanel"]
+offset_left   = 30.0
+offset_top    = 62.0
+offset_right  = 670.0
+offset_bottom = 360.0
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 15
+text = "Diseño y Narrativa
+Tu Nombre
+
+Programación
+Tu Nombre
+
+Motor
+Godot Engine 4.4
+
+Personajes y Arte
+(placeholder)
+
+Música y SFX
+(placeholder)
+
+━━━━━━━━━━━━━━━━━━━━
+Hecho con dedicación y Godot ♥"
+
+[node name="CloseButton" type="Button" parent="UILayer/CreditsPanel"]
+offset_left   = 250.0
+offset_top    = 368.0
+offset_right  = 450.0
+offset_bottom = 412.0
+text = "Cerrar"
+
+; ── Overlay de transición (encima de todo) ────────────────────────────────────
+[node name="FadeOverlay" type="ColorRect" parent="UILayer"]
+offset_right  = 1280.0
+offset_bottom = 720.0
+color         = Color(0, 0, 0, 1)
+mouse_filter  = 2
+
+; ── Conexiones ────────────────────────────────────────────────────────────────
+[connection signal="pressed" from="UILayer/ButtonContainer/StartButton"   to="." method="_on_start_pressed"]
+[connection signal="pressed" from="UILayer/ButtonContainer/CreditsButton" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="UILayer/CreditsPanel/CloseButton"      to="." method="_on_close_credits_pressed"]
