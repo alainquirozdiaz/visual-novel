@@ -1,25 +1,75 @@
-[gd_scene format=3]
+[gd_scene load_steps=3 format=3]
 
-; Caja de diálogo reutilizable para personaje izquierdo y derecho.
-; Tamaño base: 602×182 px — posición se sobreescribe en UILayer.tscn.
+; Cuadro de diálogo ÚNICO para todos los personajes y el narrador.
+; - El fondo del cuadro se tiñe con el color del personaje que habla.
+; - La placa superior (NameTag) muestra el nombre con el color pleno.
+; UIManager.gd modifica bg_color / border_color de estos StyleBox en runtime.
+
+[sub_resource type="StyleBoxFlat" id="box_style"]
+bg_color = Color(0.1, 0.1, 0.13, 0.94)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45, 0.45, 0.52, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+content_margin_left = 26.0
+content_margin_top = 18.0
+content_margin_right = 26.0
+content_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxFlat" id="name_style"]
+bg_color = Color(0.45, 0.45, 0.52, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+content_margin_left = 18.0
+content_margin_top = 4.0
+content_margin_right = 18.0
+content_margin_bottom = 4.0
 
 [node name="DialogueBox" type="Panel"]
-offset_right = 602.0
-offset_bottom = 182.0
+offset_right = 1000.0
+offset_bottom = 180.0
+theme_override_styles/panel = SubResource("box_style")
 
-[node name="NameLabel" type="Label" parent="."]
-offset_left = 10.0
-offset_top = 8.0
-offset_right = 592.0
-offset_bottom = 36.0
-theme_override_font_sizes/font_size = 17
-text = "Name"
+; Placa con el nombre — sobresale por encima del borde superior del cuadro.
+[node name="NameTag" type="Panel" parent="."]
+offset_left = 26.0
+offset_top = -20.0
+offset_right = 210.0
+offset_bottom = 22.0
+theme_override_styles/panel = SubResource("name_style")
+
+[node name="NameLabel" type="Label" parent="NameTag"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Personaje"
 
 [node name="DialogueLabel" type="Label" parent="."]
-offset_left = 10.0
-offset_top = 42.0
-offset_right = 592.0
-offset_bottom = 172.0
+offset_left = 30.0
+offset_top = 40.0
+offset_right = 970.0
+offset_bottom = 150.0
 autowrap_mode = 3
-theme_override_font_sizes/font_size = 14
-text = ""
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.95, 0.95, 0.97, 1)
+text = "Texto de diálogo de ejemplo para visualizar el cuadro en el editor."
+
+; Botón Siguiente — forma parte del propio cuadro de diálogo (esquina inf. der.)
+[node name="NextButton" type="Button" parent="."]
+offset_left = 838.0
+offset_top = 138.0
+offset_right = 976.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 15
+text = "Next  ▶"

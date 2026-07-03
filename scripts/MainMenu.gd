@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var credits_panel: Panel     = $UILayer/CreditsPanel
+@onready var credits_root:  Control   = $UILayer/CreditsRoot
+@onready var credits_panel: Panel     = $UILayer/CreditsRoot/Panel
 @onready var fade_overlay:  ColorRect = $UILayer/FadeOverlay
 
 
@@ -27,8 +28,24 @@ func _on_start_pressed() -> void:
 
 
 func _on_credits_pressed() -> void:
-	credits_panel.visible = true
+	credits_root.visible   = true
+	credits_root.modulate.a = 0.0
+	var base_y: float = credits_panel.position.y
+	credits_panel.position.y = base_y + 20.0
+
+	var tween := create_tween().set_parallel(true)
+	tween.tween_property(credits_root, "modulate:a", 1.0, 0.25)
+	tween.tween_property(credits_panel, "position:y", base_y, 0.3) \
+		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
 
 func _on_close_credits_pressed() -> void:
-	credits_panel.visible = false
+	var base_y: float = credits_panel.position.y
+	var tween := create_tween().set_parallel(true)
+	tween.tween_property(credits_root, "modulate:a", 0.0, 0.2)
+	tween.tween_property(credits_panel, "position:y", base_y + 20.0, 0.2) \
+		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	await tween.finished
+	credits_root.visible     = false
+	credits_panel.position.y = base_y
+	credits_root.modulate.a  = 1.0

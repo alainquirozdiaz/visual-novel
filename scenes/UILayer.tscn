@@ -1,49 +1,23 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script"      path="res://scripts/UIManager.gd"       id="1"]
-[ext_resource type="PackedScene" path="res://scenes/DialogueBox.tscn"    id="2"]
-[ext_resource type="PackedScene" path="res://scenes/NarrativeBox.tscn"   id="3"]
-[ext_resource type="PackedScene" path="res://scenes/DecisionMenu.tscn"   id="4"]
+[ext_resource type="Script"      path="res://scripts/UIManager.gd"     id="1"]
+[ext_resource type="PackedScene" path="res://scenes/DialogueBox.tscn"  id="2"]
+[ext_resource type="PackedScene" path="res://scenes/DecisionMenu.tscn" id="3"]
 
 ; Capa de UI completa (CanvasLayer layer=1).
 ; Siempre se dibuja encima de sprites y fondo.
-; Los nodos instanciados mantienen los nombres que UIManager.gd espera.
+; Un ÚNICO cuadro de diálogo para todos los personajes y el narrador.
 
 [node name="UILayer" type="CanvasLayer"]
 layer = 1
 script = ExtResource("1")
 
-; ── Botón Siguiente ──────────────────────────────────────────────────────────
-[node name="NextButton" type="Button" parent="."]
-offset_left   = 1100.0
-offset_top    = 680.0
-offset_right  = 1270.0
-offset_bottom = 714.0
-text = "Next  ▶"
-
-; ── Caja izquierda (personaje "left") ────────────────────────────────────────
-[node name="LeftDialogueBox" parent="." instance=ExtResource("2")]
-visible       = false
-offset_left   = 20.0
-offset_top    = 528.0
-offset_right  = 622.0
-offset_bottom = 710.0
-
-; ── Caja derecha (personaje "right") ─────────────────────────────────────────
-[node name="RightDialogueBox" parent="." instance=ExtResource("2")]
-visible       = false
-offset_left   = 658.0
-offset_top    = 528.0
-offset_right  = 1260.0
-offset_bottom = 710.0
-
-; ── Caja narrativa (speaker "narrator") ──────────────────────────────────────
-[node name="NarrativeDialogueBox" parent="." instance=ExtResource("3")]
-visible       = false
-offset_left   = 160.0
-offset_top    = 528.0
-offset_right  = 1120.0
-offset_bottom = 710.0
+; ── Cuadro de diálogo único (incluye su propio botón "Next") ──────────────────
+[node name="DialogueBox" parent="." instance=ExtResource("2")]
+offset_left   = 140.0
+offset_top    = 522.0
+offset_right  = 1140.0
+offset_bottom = 702.0
 
 ; ── Sistema de decisiones ─────────────────────────────────────────────────────
-[node name="DecisionManager" parent="." instance=ExtResource("4")]
+[node name="DecisionManager" parent="." instance=ExtResource("3")]

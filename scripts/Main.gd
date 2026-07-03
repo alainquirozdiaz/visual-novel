@@ -7,7 +7,7 @@ extends Node2D
 @onready var dialogue_manager:    Node         = $DialogueManager
 @onready var typewriter_manager:  Node         = $TypewriterManager
 @onready var ui_manager:          CanvasLayer  = $UIManager
-@onready var next_button:         Button       = $UIManager/NextButton
+@onready var next_button:         Button       = $UIManager/DialogueBox/NextButton
 @onready var fade_overlay:        ColorRect    = $TransitionLayer/FadeOverlay
 @onready var end_screen:          CanvasLayer  = $EndScreen
 
@@ -17,6 +17,11 @@ var _sprite_right_shown: bool = false
 
 
 func _ready() -> void:
+	# Los sprites tienen textura placeholder solo para el editor:
+	# en runtime empiezan ocultos hasta que el JSON asigne su sprite real.
+	sprite_left.visible  = false
+	sprite_right.visible = false
+
 	# Conectar señales
 	next_button.pressed.connect(_on_next_button_pressed)
 	dialogue_manager.line_displayed.connect(_on_line_displayed)
