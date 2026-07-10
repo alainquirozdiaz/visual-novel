@@ -7,19 +7,11 @@ Cada sección incluye la arquitectura recomendada para Godot 4.
 
 ## 🔴 Alta prioridad (core gameplay)
 
-### 1. Sistema de guardado y carga
-**Por qué falta:** sin esto el jugador pierde el progreso al cerrar.
-
-**Qué implementar:**
-- `scripts/SaveManager.gd` — autoload singleton
-- Guardar en `user://save_slot_1.json`:
-  ```json
-  { "current_id": "choice_2", "flags": { "met_riku": true }, "chapter": 1 }
-  ```
-- Menú con 3 slots de guardado
-- Llamar `SaveManager.save()` al avanzar diálogo y `SaveManager.load()` al iniciar
-
-**Archivos a crear:** `scripts/SaveManager.gd`, `scenes/SaveMenu.tscn`
+### 1. Sistema de guardado y carga ✅ (implementado)
+Ya disponible (ver sección "Implementado"). Pendiente opcional:
+- Guardar también flags/variables narrativas (punto 2) dentro del estado.
+- Miniatura/captura por ranura.
+- Confirmación al sobrescribir una ranura ocupada.
 
 ---
 
@@ -208,3 +200,10 @@ dialogues/
 - [x] Fondo SVG de demo (salón de clases)
 - [x] Capas de UI correctas (layer 1 / 5 / 10)
 - [x] Fade entre menú y escena de historia
+- [x] Tema visual compartido (`themes/ui_theme.tres`)
+- [x] Cuadro de diálogo único con color por personaje y botón "Next" integrado
+- [x] **Guardado automático** (ranura `autosave`) en cada línea/decisión
+- [x] **Guardado manual** en 6 ranuras desde el menú in-game
+- [x] **Cargar** partida desde el menú in-game o desde el menú de inicio
+- [x] **Volver al menú principal** durante la partida
+- [x] `SaveManager` autoload (`user://saves/*.save`)

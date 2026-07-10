@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource type="Script"      path="res://scripts/UIManager.gd"     id="1"]
-[ext_resource type="PackedScene" path="res://scenes/DialogueBox.tscn"  id="2"]
-[ext_resource type="PackedScene" path="res://scenes/DecisionMenu.tscn" id="3"]
+[ext_resource type="Script"      path="res://scripts/UIManager.gd"      id="1"]
+[ext_resource type="PackedScene" path="res://scenes/DialogueBox.tscn"   id="2"]
+[ext_resource type="PackedScene" path="res://scenes/DecisionMenu.tscn"  id="3"]
+[ext_resource type="PackedScene" path="res://scenes/SystemMenu.tscn"    id="4"]
+[ext_resource type="PackedScene" path="res://scenes/SaveSlotPanel.tscn" id="5"]
 
 ; Capa de UI completa (CanvasLayer layer=1).
 ; Siempre se dibuja encima de sprites y fondo.
 ; Un ÚNICO cuadro de diálogo para todos los personajes y el narrador.
+; El orden de los hijos define el dibujado: SystemMenu y SaveSlotPanel al final
+; para quedar por encima del diálogo y las decisiones.
 
 [node name="UILayer" type="CanvasLayer"]
 layer = 1
@@ -21,3 +25,22 @@ offset_bottom = 702.0
 
 ; ── Sistema de decisiones ─────────────────────────────────────────────────────
 [node name="DecisionManager" parent="." instance=ExtResource("3")]
+
+; ── Aviso temporal (guardado, etc.) ──────────────────────────────────────────
+[node name="Toast" type="Label" parent="."]
+visible       = false
+offset_left   = 440.0
+offset_top    = 24.0
+offset_right  = 840.0
+offset_bottom = 60.0
+horizontal_alignment = 1
+vertical_alignment   = 1
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.85, 0.95, 0.85, 1)
+text = ""
+
+; ── Menú de sistema in-game (botón + overlay) ─────────────────────────────────
+[node name="SystemMenu" parent="." instance=ExtResource("4")]
+
+; ── Selector de ranuras (guardar / cargar) ────────────────────────────────────
+[node name="SaveSlotPanel" parent="." instance=ExtResource("5")]

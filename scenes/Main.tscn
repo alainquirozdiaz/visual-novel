@@ -37,7 +37,7 @@ texture = ExtResource("10")
 
 [node name="SpriteRight" parent="." unique_id=1216842525 instance=ExtResource("5")]
 offset_left = 686.0
-offset_top = -18.000002
+offset_top = -18.0
 offset_right = 1086.0
 offset_bottom = 582.0
 scale = Vector2(1.1120049, 1.1975285)
@@ -53,7 +53,7 @@ script = ExtResource("3")
 script = ExtResource("4")
 
 [node name="TypewriterTimer" type="Timer" parent="." unique_id=1341907387]
-wait_time = 0.03
+wait_time = 0.05
 
 [node name="UIManager" parent="." unique_id=421945913 instance=ExtResource("6")]
 

@@ -2,10 +2,13 @@ extends Node2D
 
 @onready var credits_root:  Control   = $UILayer/CreditsRoot
 @onready var credits_panel: Panel     = $UILayer/CreditsRoot/Panel
+@onready var save_panel:    Control   = $UILayer/SaveSlotPanel
 @onready var fade_overlay:  ColorRect = $UILayer/FadeOverlay
 
 
 func _ready() -> void:
+	save_panel.slot_selected.connect(_on_load_slot_selected)
+
 	# Empieza negro (mouse_filter=STOP para bloquear clics durante el fade inicial)
 	fade_overlay.color.a    = 1.0
 	fade_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -19,7 +22,25 @@ func _ready() -> void:
 
 
 func _on_start_pressed() -> void:
-	# Volver a bloquear input y hacer fade a negro antes de cambiar escena
+	# Partida nueva: sin estado a restaurar.
+	SaveManager.pending_state = {}
+	_go_to_game()
+
+
+func _on_load_pressed() -> void:
+	save_panel.open("load")
+
+
+func _on_load_slot_selected(slot_name: String) -> void:
+	var state: Dictionary = SaveManager.load_from_slot(slot_name)
+	if state.is_empty():
+		return
+	SaveManager.pending_state = state
+	_go_to_game()
+
+
+## Fade a negro y cambio a la escena de juego.
+func _go_to_game() -> void:
 	fade_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
 	var tween := create_tween()
 	tween.tween_property(fade_overlay, "color:a", 1.0, 0.6)
